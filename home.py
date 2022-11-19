@@ -6,11 +6,14 @@ import numpy as np
 
 from flask import Flask, render_template, request, jsonify
 
-sys.path.append('/home/aszels')
+
+home_dir = '/home/aszels/'
+
+sys.path.append(home_dir)
 from rplsh import lib as rplsh
 
 app = Flask(__name__)
-lsh_main = rplsh.RandomProjectionLSH(vec_space_path='gs://vector_spaces/GoogleNews-vectors-negative300.bin', load_dir='gs://vector_spaces/hash_table') 
+lsh_main = rplsh.RandomProjectionLSH(vec_space_path=f'{home_dir}/GoogleNews-vectors-negative300.bin', load_dir=f'{home_dir}/hash_table') 
 
 @app.route("/", methods=['GET', 'POST'])
 def main_page():
