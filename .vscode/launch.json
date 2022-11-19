@@ -5,7 +5,7 @@
 			"name": "Python: Current File (Integrated Terminal)",
 			"type": "python",
 			"request": "launch",
-			"program": "home.py",
+			"program": "${fileDirname}/home.py",
 			"console": "integratedTerminal",
 			"cwd": "${fileDirname}"
 		}
