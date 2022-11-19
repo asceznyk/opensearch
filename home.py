@@ -6,7 +6,7 @@ import numpy as np
 
 from flask import Flask, render_template, request, jsonify
 
-sys.path.append('/home/ahansnash')
+sys.path.append('/home/aszels')
 from rplsh import lib as rplsh
 
 app = Flask(__name__)
