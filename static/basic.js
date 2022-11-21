@@ -1,5 +1,4 @@
 const queryHandler = document.getElementById('query');
-const querySender = document.getElementById('search');
 const resultHandler = document.getElementById('results');
 
 queryHandler.addEventListener("keyup", async function() {
