@@ -18,8 +18,8 @@ lsh_main = rplsh.RandomProjectionLSH(vec_space_path=f'{home_dir}/GoogleNews-vect
 @app.route("/", methods=['GET', 'POST'])
 def main_page():
     if request.method == 'POST':
-        query = request.get_json()
-        return jsonify(query)
+        query = request.get_json()['query']
+        return jsonify(lsh_main.search(query))
     else:
         return render_template('main.html')
 
