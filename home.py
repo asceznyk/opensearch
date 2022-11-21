@@ -22,7 +22,7 @@ def main_page():
         query = request.get_json()['query']
         results = lsh_main.search(query)
         print(results)
-        return json.dumps(results)
+        return json.dumps(str(results))
     else:
         return render_template('main.html')
 
