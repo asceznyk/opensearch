@@ -1,6 +1,7 @@
 import os
 import io
 import sys
+import json
 
 import numpy as np
 
@@ -21,7 +22,7 @@ def main_page():
         query = request.get_json()['query']
         results = lsh_main.search(query)
         print(results)
-        return jsonify(results)
+        return json.dumps(results)
     else:
         return render_template('main.html')
 
