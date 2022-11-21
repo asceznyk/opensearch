@@ -10,8 +10,8 @@ queryHandler.addEventListener("keyup", async function() {
 			"query": queryHandler.value,
 		}), 
 	});
+	console.log(results.data);
 });
-console.log(results.data);
  
 
 
