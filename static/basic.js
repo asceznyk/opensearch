@@ -10,7 +10,8 @@ queryHandler.addEventListener("keyup", async function() {
 			"query": queryHandler.value,
 		}), 
 	});
-	console.log(results.data);
+	results = await results.json();
+	console.log(results);
 });
  
 
