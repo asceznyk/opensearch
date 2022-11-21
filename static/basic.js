@@ -9,9 +9,9 @@ queryHandler.addEventListener("keyup", async function() {
 		body: JSON.stringify({
 			"query": queryHandler.value,
 		}), 
-	}).resolve();
+	});
 });
-console.log(results);
+console.log(results.data);
  
 
 
