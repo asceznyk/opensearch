@@ -19,10 +19,13 @@ lsh_main = rplsh.RandomProjectionLSH(vec_space_path=f'{home_dir}/GoogleNews-vect
 @app.route("/", methods=['GET', 'POST'])
 def main_page():
     if request.method == 'POST':
-        query = request.get_json()['query']
-        results = lsh_main.search(query)
+        results = lsh_main.search(request.get_json()['query'])
         print(results)
-        return json.dumps(str(results))
+        top_words = {'words':[], 'scores':[]}
+        for k, v in results.items():
+            top_words['words'].append(k)
+            top_words['scores'].append(v)
+        return json.dumps(str(top_words))
     else:
         return render_template('main.html')
 
