@@ -1,14 +1,16 @@
 const queryHandler = document.getElementById('query');
 const querySender = document.getElementById('search');
+const resultHandler = document.getElementById('results');
 
-querySender.addEventListener("click", function() {
-	fetch("/", {
+queryHandler.addEventListener("keyup", async function() {
+	let results = await fetch("/", {
 		method:"post", 
 		headers:{"content-type":"application/json"}, 
 		body: JSON.stringify({
 			"query": queryHandler.value,
 		}), 
-	})
+	});
+	console.log(results);
 });
  
 
