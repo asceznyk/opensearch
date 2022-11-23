@@ -1,3 +1,4 @@
-# opensearch #
+# toycomplete #
 
+Requires RPLSH to run
 
