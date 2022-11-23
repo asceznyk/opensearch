@@ -16,8 +16,9 @@ function autocomplete(inp) {
 				"query": val,
 			}), 
 		});
-		results = JSON.parse(await results.json());
-		console.log(results);
+		results = await results.json();
+		results = JSON.parse(results);
+		console.log(JSON.parse(results));
 
 		closeAllLists();
 
