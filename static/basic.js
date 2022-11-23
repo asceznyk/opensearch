@@ -5,7 +5,7 @@ function autocomplete(inp) {
   var currentFocus;
 	var results;
 
-  inp.addEventListener("input", function(e) {
+  inp.addEventListener("input", async function(e) {
 		var a, b, i; 
 		var val = this.value;
 
@@ -37,7 +37,7 @@ function autocomplete(inp) {
 		}
   });
 
-	inp.addEventListener("keydown", async function(e) {
+	inp.addEventListener("keydown", function(e) {
 		var x = document.getElementById(this.id + "autocomplete-list");
 		if (x) x = x.getElementsByTagName("div");
 		if (e.keyCode == 40) {
