@@ -23,9 +23,9 @@ def main_page():
         print(results)
         top_words = {"words":[], "scores":[]}
         for k, v in results.items():
-            top_words["words"].append(k)
-            top_words["scores"].append(f"'{v}'")
-        return str(top_words)
+            top_words["words"].append(f"{k}")
+            top_words["scores"].append(f"{v}")
+        return json.dumps(top_words)
     else:
         return render_template('main.html')
 
