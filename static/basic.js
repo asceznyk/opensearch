@@ -9,7 +9,7 @@ function autocomplete(inp) {
 		var a, b, i; 
 		var val = this.value;
 
-		inp.setAttribute('readonly');
+		inp.setAttribute('readonly', true);
 		results = await fetch("/", {
 			method:"post", 
 			headers:{"content-type":"application/json"}, 
