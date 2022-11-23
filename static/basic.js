@@ -9,6 +9,7 @@ function autocomplete(inp) {
 		var a, b, i; 
 		var val = this.value;
 
+		inp.setAttribute('readonly');
 		results = await fetch("/", {
 			method:"post", 
 			headers:{"content-type":"application/json"}, 
@@ -17,6 +18,8 @@ function autocomplete(inp) {
 			}), 
 		});
 		results = await results.json();
+		inp.removeAttribute('readonly');
+
 		console.log(results);
 
 		closeAllLists();
@@ -71,10 +74,6 @@ function autocomplete(inp) {
 			}
 		}
 	}
-
-	document.addEventListener("click", function (e) {
-			closeAllLists(e.target);
-	});
 }
 
 autocomplete(queryHandler)
