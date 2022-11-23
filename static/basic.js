@@ -17,8 +17,7 @@ function autocomplete(inp) {
 			}), 
 		});
 		results = await results.json();
-		results = JSON.parse(results);
-		console.log(JSON.parse(results));
+		console.log(results);
 
 		closeAllLists();
 
