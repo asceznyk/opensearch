@@ -25,7 +25,7 @@ def main_page():
         for k, v in results.items():
             top_words["words"].append(k)
             top_words["scores"].append(f"'{v}'")
-        return jsonify(str(top_words))
+        return str(top_words)
     else:
         return render_template('main.html')
 
