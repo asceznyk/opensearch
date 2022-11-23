@@ -28,7 +28,7 @@ function autocomplete(inp) {
 		a.setAttribute("id", this.id + "autocomplete-list");
 		a.setAttribute("class", "autocomplete-items");
 		this.parentNode.appendChild(a);
-		for (i = 0; i < results.length; i++) {
+		for (i = 0; i < results['words'].length; i++) {
 			b = document.createElement("DIV");
 			b.innerHTML = "<strong>" + results['words'][i].substr(0, val.length) + "</strong>";
 			b.innerHTML += results['words'][i].substr(val.length);
