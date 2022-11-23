@@ -30,7 +30,7 @@ def main_page():
             print(f"error occured: {e}")
             pass
 
-        return json.dums(top_words)
+        return json.dumps(top_words)
     else:
         return render_template('main.html')
 
