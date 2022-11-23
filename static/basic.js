@@ -16,7 +16,7 @@ function autocomplete(inp) {
 				"query": val,
 			}), 
 		});
-		results = await results.json();
+		results = JSON.parse(await results.json());
 		console.log(results);
 
 		closeAllLists();
@@ -30,9 +30,9 @@ function autocomplete(inp) {
 		this.parentNode.appendChild(a);
 		for (i = 0; i < results.length; i++) {
 			b = document.createElement("DIV");
-			b.innerHTML = "<strong>" + results[i].substr(0, val.length) + "</strong>";
-			b.innerHTML += results[i].substr(val.length);
-			b.innerHTML += "<input type='hidden' value='" + results[i] + "'>";
+			b.innerHTML = "<strong>" + results['words'][i].substr(0, val.length) + "</strong>";
+			b.innerHTML += results['words'][i].substr(val.length);
+			b.innerHTML += "<input type='hidden' value='" + results['words'][i] + "'>";
 			a.appendChild(b);
 		}
   });
