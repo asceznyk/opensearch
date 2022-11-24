@@ -1,7 +1,7 @@
 {
-	"sys_path": "/home/ahansnash",
-	"vec_space_path": "/home/ahansnash/GoogleNews-vectors-negative300.bin",
-	"load_dir":"/home/ahansnash/hash_table"
+	"sys_path": "/home/aszels",
+	"vec_space_path": "/home/aszels/GoogleNews-vectors-negative300.bin",
+	"load_dir":"/home/aszels/hash_table"
 }
 
 
