@@ -7,7 +7,7 @@ import numpy as np
 
 from flask import Flask, render_template, request, jsonify
 
-def main(config_path):
+def main(config_path='config_server.json'):
     with open(config_path) as f:
         config = json.load(f)
 
@@ -41,10 +41,7 @@ def main(config_path):
     return app
 
 if __name__ == '__main__':
-    from argparse import ArgumentParser
-    parser = ArgumentParser()
-    parser.add_argument('--config', default='config_server.json', required=True) 
-    app = main(parser.parse_args().config)
+    app = main()
     app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
 
 
