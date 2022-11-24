@@ -6,7 +6,8 @@ ENV APP_HOME /app
 WORKDIR $APP_HOME
 
 COPY . ./
-COPY ~/rplsh ./
+RUN mkdir rplsh
+ADD ~/rplsh ./rplsh
 
 ENV PORT=5000
 
