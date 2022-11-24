@@ -7,7 +7,7 @@ WORKDIR $APP_HOME
 
 COPY . ./
 RUN mkdir rplsh
-ADD ~/rplsh ./rplsh
+ADD /home/ahansnash/rplsh ./rplsh
 
 ENV PORT=5000
 
