@@ -7,14 +7,17 @@ import numpy as np
 
 from flask import Flask, render_template, request, jsonify
 
+def create_app(config):
+    sys.path.append(config['sys_path'])
+    from rplsh import lib as rplsh
 
-home_dir = '/home/aszels/'
+    app = Flask(__name__)
+    lsh_main = rplsh.RandomProjectionLSH(
+        vec_space_path=config['vec_space_path'], 
+        load_dir=config['load_dir']
+    )
 
-sys.path.append(home_dir)
-from rplsh import lib as rplsh
-
-app = Flask(__name__)
-lsh_main = rplsh.RandomProjectionLSH(vec_space_path=f'{home_dir}/GoogleNews-vectors-negative300.bin', load_dir=f'{home_dir}/hash_table') 
+    return app, lsh_main
 
 @app.route("/", methods=['GET', 'POST'])
 def main_page():
@@ -35,6 +38,12 @@ def main_page():
         return render_template('main.html')
 
 if __name__ == '__main__':
+    from argparse import ArgumentParser
+    parser = ArgumentParser()
+    parser.add_argument('--config', default='config_server.json', required=True)
+    args = parser.parse_args()
+    config = args.config
+    app, lsh_main = create_app(config)
     app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
 
 
