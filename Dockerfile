@@ -5,9 +5,9 @@ ENV PYTHONUNBUFFERED True
 ENV APP_HOME /app
 WORKDIR $APP_HOME
 
-COPY ./toycomplete ./
+COPY ./toycomplete/* ./
 RUN mkdir rplsh
-ADD ./rplsh ./rplsh
+ADD ./rplsh/* ./rplsh
 
 ENV PORT=5000
 
