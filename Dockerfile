@@ -6,6 +6,8 @@ ENV APP_HOME /app
 WORKDIR $APP_HOME
 
 COPY ./toycomplete/* ./
+COPY ./GoogleNews-vectors-negative300.bin ./
+COPY ./hash_table/ ./
 RUN mkdir rplsh
 ADD ./rplsh/* ./rplsh/
 
