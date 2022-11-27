@@ -7,7 +7,7 @@ WORKDIR $APP_HOME
 
 COPY ./toycomplete/* ./
 COPY ./GoogleNews-vectors-negative300.bin ./
-ADD hash_table ./
+COPY hash_table ./hash_table
 RUN mkdir rplsh
 ADD ./rplsh/* ./rplsh/
 
