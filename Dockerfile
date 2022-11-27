@@ -5,11 +5,10 @@ ENV PYTHONUNBUFFERED True
 ENV APP_HOME /app
 WORKDIR $APP_HOME
 
-COPY ./toycomplete/* ./
+COPY ./toycomplete/ ./
 COPY ./GoogleNews-vectors-negative300.bin ./
-COPY hash_table ./hash_table
-RUN mkdir rplsh
-ADD ./rplsh/* ./rplsh/
+COPY ./hash_table ./hash_table
+COPY ./rplsh ./rplsh
 
 ENV PORT=5000
 
