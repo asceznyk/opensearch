@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+ROM python:3.10-slim
 
 ENV PYTHONUNBUFFERED True
 
@@ -16,6 +16,6 @@ EXPOSE 5000
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 "home:main('config_micro.json')"
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 "micro:app"
 
 
