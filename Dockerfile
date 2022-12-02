@@ -18,7 +18,7 @@ RUN wget -O - https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key ad
 RUN apt-get update
 RUN apt-get install -y fuse
 RUN apt-get install -y gcsfuse
-RUN usermod -a -G fuse $USER
+#RUN usermod -a -G fuse $USER
 
 RUN mkdir ./ext_storage
 RUN gcsfuse --implicit-dirs vector_spaces ./ext_storage/
