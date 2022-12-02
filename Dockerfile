@@ -27,7 +27,7 @@ EXPOSE 5000
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-ENTRYPOINT ["mount.sh"]
+ENTRYPOINT ["./mount.sh"]
 
 CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 micro:app
 
