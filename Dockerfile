@@ -18,7 +18,7 @@ RUN wget -O - https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key ad
 RUN apt-get update
 RUN apt-get install -y gcsfuse
 
-RUN gcsfuse vector_spaces/ ./mount
+RUN gcsfuse vector_spaces ./mount
 
 ENV PORT=5000
 
