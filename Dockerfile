@@ -16,6 +16,7 @@ RUN GCSFUSE_REPO=$(cat /tmp/lsb_release); echo "deb http://packages.cloud.google
 RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 
 RUN apt-get update
+RUN apt-get install -y fuse
 RUN apt-get install -y gcsfuse
 RUN usermod -a -G fuse $USER
 
