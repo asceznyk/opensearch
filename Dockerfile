@@ -6,9 +6,19 @@ ENV APP_HOME /app
 WORKDIR $APP_HOME
 
 COPY ./toycomplete/ ./
-COPY ./GoogleNews-vectors-negative300.bin ./
-COPY ./hash_table ./hash_table
 COPY ./rplsh ./rplsh
+
+RUN apt-get update
+RUN apt-get install -y gnupg lsb-release wget
+
+RUN lsb_release -c -s > /tmp/lsb_release
+RUN GCSFUSE_REPO=$(cat /tmp/lsb_release); echo "deb http://packages.cloud.google.com/apt gcsfuse-$GCSFUSE_REPO main" | tee /etc/apt/sources.list.d/gcsfuse.list
+RUN wget -O - https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+
+RUN apt-get update
+RUN apt-get install -y gcsfuse
+
+RUN gcsfuse vector_spaces/ ./mount
 
 ENV PORT=5000
 
@@ -16,6 +26,6 @@ EXPOSE 5000
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 "micro:app"
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 micro:app
 
 
