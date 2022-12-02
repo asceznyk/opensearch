@@ -13,10 +13,11 @@ RUN apt-get install -y gnupg lsb-release wget
 
 RUN lsb_release -c -s > /tmp/lsb_release
 RUN GCSFUSE_REPO=$(cat /tmp/lsb_release); echo "deb http://packages.cloud.google.com/apt gcsfuse-$GCSFUSE_REPO main" | tee /etc/apt/sources.list.d/gcsfuse.list
-RUN wget -O - https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 
 RUN apt-get update
 RUN apt-get install -y gcsfuse
+RUN usermod -a -G fuse $USER
 
 RUN mkdir ./ext_storage
 RUN gcsfuse --implicit-dirs vector_spaces ./ext_storage/
