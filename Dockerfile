@@ -20,8 +20,6 @@ RUN apt-get install -y fuse
 RUN apt-get install -y gcsfuse
 
 RUN mkdir ./ext_storage
-RUN chmod a+w ./ext_storage
-RUN gcsfuse --implicit-dirs vector_spaces ./ext_storage/
 
 ENV PORT=5000
 
@@ -29,6 +27,7 @@ EXPOSE 5000
 
 RUN pip install --no-cache-dir -r requirements.txt
 
+CMD exec gcsfuse --implicit-dirs vector_spaces ./ext_storage/
 CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 micro:app
 
 
