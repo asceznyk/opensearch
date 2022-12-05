@@ -7,10 +7,9 @@ import numpy as np
 
 from flask import Flask, render_template, request, jsonify
 
-with open('config_micro.json') as f:
+with open('config.json') as f:
     config = json.load(f)
 
-sys.path.append(config['sys_path'])
 from rplsh import lib as rplsh
 
 app = Flask(__name__)
